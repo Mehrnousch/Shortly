@@ -42,7 +42,7 @@ class DashboardViewController: UIViewController {
         topDashboardView.bottomAnchor.constraint(equalTo: linkInputView.topAnchor).isActive = true
         
         //linkInputView
-        linkInputView.heightAnchor.constraint(equalToConstant: 180 ).isActive = true
+        linkInputView.heightAnchor.constraint(equalToConstant: 200 ).isActive = true
         linkInputView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
         //linkInputView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         //linkInputView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

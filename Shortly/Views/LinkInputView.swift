@@ -102,18 +102,18 @@ extension LinkInputView {
     }
     
     private func setupLayout() {
-        urlTextField.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        urlTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
       
-        urlTextField.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+        urlTextField.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
         urlTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
         urlTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60).isActive = true
         
 //        urlButton
-        urlButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        //urlButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         urlButton.topAnchor.constraint(equalTo: urlTextField.bottomAnchor, constant: 10).isActive = true
         urlButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
         urlButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60).isActive = true
-        urlButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
+        urlButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50).isActive = true
         urlButton.backgroundColor = .gray
     }
 }
