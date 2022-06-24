@@ -15,6 +15,10 @@
 		56FB406B285BB73900FE6E6B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB406A285BB73900FE6E6B /* DashboardViewController.swift */; };
 		56FB4071285F19B300FE6E6B /* TopDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4070285F19B300FE6E6B /* TopDashboardView.swift */; };
 		56FB4143286234B000FE6E6B /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4142286234B000FE6E6B /* LinkTableViewCell.swift */; };
+		56FB414A2866053B00FE6E6B /* ShortlyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB41492866053B00FE6E6B /* ShortlyDataModel.swift */; };
+		56FB414D2866268500FE6E6B /* CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB414C2866268500FE6E6B /* CharacterSet.swift */; };
+		56FB414F2866269C00FE6E6B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB414E2866269C00FE6E6B /* Dictionary.swift */; };
+		56FB4151286626C600FE6E6B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4150286626C600FE6E6B /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		56FB406A285BB73900FE6E6B /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		56FB4070285F19B300FE6E6B /* TopDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDashboardView.swift; sourceTree = "<group>"; };
 		56FB4142286234B000FE6E6B /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
+		56FB41492866053B00FE6E6B /* ShortlyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortlyDataModel.swift; sourceTree = "<group>"; };
+		56FB414C2866268500FE6E6B /* CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSet.swift; sourceTree = "<group>"; };
+		56FB414E2866269C00FE6E6B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		56FB4150286626C600FE6E6B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,8 @@
 		56FB404F285B65CC00FE6E6B /* Shortly */ = {
 			isa = PBXGroup;
 			children = (
+				56FB414B2866262F00FE6E6B /* Extension */,
+				56FB4148286604FF00FE6E6B /* Model */,
 				56FB406A285BB73900FE6E6B /* DashboardViewController.swift */,
 				56FB4065285B7E2000FE6E6B /* Views */,
 				56FB4064285B769500FE6E6B /* Supporting files */,
@@ -87,6 +97,24 @@
 				56FB4142286234B000FE6E6B /* LinkTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		56FB4148286604FF00FE6E6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56FB41492866053B00FE6E6B /* ShortlyDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56FB414B2866262F00FE6E6B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				56FB414C2866268500FE6E6B /* CharacterSet.swift */,
+				56FB414E2866269C00FE6E6B /* Dictionary.swift */,
+				56FB4150286626C600FE6E6B /* UIView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,12 +187,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FB4151286626C600FE6E6B /* UIView.swift in Sources */,
 				56FB4051285B65CC00FE6E6B /* AppDelegate.swift in Sources */,
 				56FB4053285B65CC00FE6E6B /* SceneDelegate.swift in Sources */,
 				56FB4067285B7E6200FE6E6B /* LinkInputView.swift in Sources */,
 				56FB4143286234B000FE6E6B /* LinkTableViewCell.swift in Sources */,
 				56FB4071285F19B300FE6E6B /* TopDashboardView.swift in Sources */,
+				56FB414F2866269C00FE6E6B /* Dictionary.swift in Sources */,
 				56FB406B285BB73900FE6E6B /* DashboardViewController.swift in Sources */,
+				56FB414D2866268500FE6E6B /* CharacterSet.swift in Sources */,
+				56FB414A2866053B00FE6E6B /* ShortlyDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

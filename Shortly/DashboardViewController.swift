@@ -8,24 +8,46 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-
+    
     //linkInputView is appearance of url login
-    var linkInputView = LinkInputView()
-    var topDashboardView = TopDashboardView()
+    var linkInputView = LinkInputView().autoLayoutView()
+    var topDashboardView = TopDashboardView().autoLayoutView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDefaults()
         setupUI()
         setupLayout()
     }
+}
+
+
+// MARK: - API call
+
+extension DashboardViewController {
+
+}
     
+ 
+extension DashboardViewController {
+    
+    private func setupDefaults() {
+        
+        Task {
+            do {
+                let shorterLink = try await ShortlyDataModel.shared.fetchAlbumWithAsyncURLSession(for: "https://stackoverflow.com/questions/26364914/http-request-in-swift-with-post-method")
+                print(shorterLink)
+            } catch {
+                print("Request failed with error: \(error)")
+            }
+
+        }
+    }
     
     private func setupUI() {
         view.addSubview(linkInputView)
         //vaghti az Storyboard estefede nemikonim code zir ra minevisim, chera?
-        linkInputView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(topDashboardView)
-        topDashboardView.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .secondarySystemBackground
         topDashboardView.backgroundColor = .secondarySystemBackground
     }
@@ -49,8 +71,8 @@ class DashboardViewController: UIViewController {
         linkInputView.bottomAnchor.constraint(equalTo: view.bottomAnchor) .isActive = true
         
     }
+    
 }
-
 
 
 

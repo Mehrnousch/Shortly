@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIView {
+   public func autoLayoutView() -> Self {
+      translatesAutoresizingMaskIntoConstraints = false
+      return self
+   }
+ }
