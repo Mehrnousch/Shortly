@@ -17,7 +17,7 @@ class ShortlyDataModel {
     static let shared = ShortlyDataModel()
     
     
-    public func fetchAlbumWithAsyncURLSession(for targetURL: String) async throws -> ShorterLink {
+    public func fetchAlbumWithAsyncURLSession(for targetURL: String) async throws -> ShorterLinkResult {
         
         guard let url = URL(string: "https://api.shrtco.de/v2/shorten") else {
             throw NetworkError.invalidURL
@@ -34,7 +34,7 @@ class ShortlyDataModel {
         let (data, _) = try await URLSession.shared.data(for: request)
         
         let linkData = try JSONDecoder().decode(ShorterLink.self, from: data)
-        return linkData
+        return linkData.result
     }
     
     
@@ -46,8 +46,14 @@ struct ShorterLink: Decodable {
 }
 
 struct ShorterLinkResult: Decodable {
+ 
     let full_short_link: String
     let original_link: String
+    
+    internal init(full_short_link: String = "", original_link: String = "") {
+        self.full_short_link = full_short_link
+        self.original_link = original_link
+    }
 }
 
 
