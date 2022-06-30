@@ -11,21 +11,50 @@ class DashboardViewController: UIViewController {
     
     //linkInputView is appearance of url login
     var linkInputView = LinkInputView().autoLayoutView()
-    var topDashboardView = TopDashboardView().autoLayoutView()
+    var linkListTableView = LinkListTableView().autoLayoutView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventHandlers()
         setupDefaults()
         setupUI()
         setupLayout()
     }
 }
 
+// MARK: - Handlers
+
+extension DashboardViewController {
+    
+    private func eventHandlers() {
+        
+        linkInputView.eventHandler = { [weak self] events in
+            switch events {
+            case .shortLink(let url):
+                self?.getShorterLink(url: url)
+            }
+        }
+    }
+
+}
 
 // MARK: - API call
 
 extension DashboardViewController {
 
+    private func getShorterLink(url: String) {
+        
+        Task {
+            do {
+                let shorterLink = try await ShortlyDataModel.shared.fetchAlbumWithAsyncURLSession(for: url)
+                
+                linkListTableView.linkList.append(shorterLink)
+            } catch {
+                print("Request failed with error: \(error)")
+            }
+        }
+    }
+    
 }
     
  
@@ -33,23 +62,14 @@ extension DashboardViewController {
     
     private func setupDefaults() {
         
-        Task {
-            do {
-                let shorterLink = try await ShortlyDataModel.shared.fetchAlbumWithAsyncURLSession(for: "https://stackoverflow.com/questions/26364914/http-request-in-swift-with-post-method")
-                print(shorterLink)
-            } catch {
-                print("Request failed with error: \(error)")
-            }
-
-        }
     }
     
     private func setupUI() {
         view.addSubview(linkInputView)
         //vaghti az Storyboard estefede nemikonim code zir ra minevisim, chera?
-        view.addSubview(topDashboardView)
+        view.addSubview(linkListTableView)
         view.backgroundColor = .secondarySystemBackground
-        topDashboardView.backgroundColor = .secondarySystemBackground
+        linkListTableView.backgroundColor = .secondarySystemBackground
     }
     
     
@@ -57,11 +77,11 @@ extension DashboardViewController {
   
     private func setupLayout() {
         
-        //topDashboardView
-        topDashboardView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
+        //LinkTableViewCell
+        linkListTableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
         //topDashboardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        topDashboardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        topDashboardView.bottomAnchor.constraint(equalTo: linkInputView.topAnchor).isActive = true
+        linkListTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        linkListTableView.bottomAnchor.constraint(equalTo: linkInputView.topAnchor).isActive = true
         
         //linkInputView
         linkInputView.heightAnchor.constraint(equalToConstant: 200 ).isActive = true

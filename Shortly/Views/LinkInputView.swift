@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 
 class LinkInputView: UIView {
+    //Send information to the parent or child page
+    public enum Event {
+        case shortLink(url: String)
+    }
+    //?
+    public var eventHandler: ((Event) -> Void)?
+    
     //chera lazy?
     private lazy var urlTextField = UITextField()
     private lazy var urlButton = UIButton()
@@ -30,9 +37,8 @@ class LinkInputView: UIView {
 // MARK: - TextField delegate
 
 extension LinkInputView: UITextFieldDelegate {
-    
+    //If an URL is written in the textField, the button will be active and green, otherwise the button is inactive and gray.
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        //print(textField.text)
         urlButton.isEnabled = false
         print(verifyUrl(urlString: textField.text))
         if verifyUrl(urlString: textField.text){
@@ -60,11 +66,16 @@ extension LinkInputView: UITextFieldDelegate {
 
 //MARK: -Button
 extension LinkInputView {
-@objc func pressed() {
-
-        print("The button is Active")
-}
+    
+    @objc func pressed() {
+        // If in Textfield, there was a text or it was not empty ?
+        if let url = urlTextField.text, url != "" {
+            eventHandler?(.shortLink(url: url))
+        }
     }
+}
+
+
 // MARK: - Setup UI
 
 
@@ -74,6 +85,7 @@ extension LinkInputView {
         urlTextField.delegate = self
         // add event UIButton, func press ro call mikone
         urlButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        urlButton.isEnabled = false
     }
     
     func setupUI() {
@@ -89,7 +101,7 @@ extension LinkInputView {
         urlTextField.layer.borderWidth = 2
         urlTextField.placeholder =  " Please add a link here!"
         urlTextField.textAlignment = .center
-        urlTextField.textColor = .white
+        urlTextField.textColor = .label
         urlTextField.layer.borderColor = .init(red: 0.8, green: 0.2, blue: 0.3, alpha: 0.9)
         urlTextField.layer.borderWidth = 2
         
@@ -103,7 +115,6 @@ extension LinkInputView {
     
     private func setupLayout() {
         urlTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-      
         urlTextField.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
         urlTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
         urlTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60).isActive = true
