@@ -8,64 +8,76 @@
 import UIKit
 
 class LinkTableViewCell: UITableViewCell {
-    private lazy var container = UIView()
-    private lazy var originalLinkLabel = UILabel()
-    private lazy var deleteButton = UIButton()
-    private lazy var separatorLine = UIView()
-    private lazy var shorterLink = UILabel()
-    private lazy var copyButton = UIButton()
+    
+    public enum Event {
+        case removeItem(data: ShorterLinkResult)
+    }
+    public var eventHandler: ((Event) -> Void)?
+    private lazy var container = UIView().autoLayoutView()
+    private lazy var originalLinkLabel = UILabel().autoLayoutView()
+    lazy var deleteButton = UIButton().autoLayoutView()
+    private lazy var separatorLine = UIView().autoLayoutView()
+    private lazy var shorterLink = UILabel().autoLayoutView()
+    lazy var copyButton = UIButton().autoLayoutView()
+    
+    private lazy var linkData = ShorterLinkResult()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
         setupLayout()
+        setupDefault()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-// MARK: - data setup cell
-
+//MARK: -deleteButton
 extension LinkTableViewCell {
     
-    func setupCell(data: LinkData) {
-        originalLinkLabel.text = data.originalLink
-        shorterLink.text = data.shorterLink
+    @objc func deleteButtonPressed() {
+        eventHandler?(.removeItem(data: linkData))
+    }
+    
+  
+    @objc func copySchorterLink() {
+        UIPasteboard.general.string = linkData.full_short_link
+    }
+    
+}
+
+// MARK: - data setup cell
+extension LinkTableViewCell {
+    
+    func setupCell(data: ShorterLinkResult) {
+        originalLinkLabel.text = data.original_link
+        shorterLink.text = data.full_short_link
+        linkData = data
     }
 }
 
 
 // MARK: - SetupUI
-
 extension LinkTableViewCell {
+    func setupDefault() {
+        deleteButton.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
+       copyButton.addTarget(self, action: #selector(copySchorterLink), for: .touchUpInside)
+    }
+    
     func setupUI() {
-        backgroundColor = .secondarySystemBackground
-        addSubview(container)
-        container.translatesAutoresizingMaskIntoConstraints = false
-        
+        backgroundColor = UIColor.black.withAlphaComponent(0.05)
+        contentView.addSubview(container)
         container.addSubview(originalLinkLabel)
-        originalLinkLabel.translatesAutoresizingMaskIntoConstraints = false
-
         container.addSubview(deleteButton)
-        deleteButton.translatesAutoresizingMaskIntoConstraints = false
-
         container.addSubview(separatorLine)
-        separatorLine.translatesAutoresizingMaskIntoConstraints = false
-
         container.addSubview(shorterLink)
-        shorterLink.translatesAutoresizingMaskIntoConstraints = false
-
         container.addSubview(copyButton)
-        copyButton.translatesAutoresizingMaskIntoConstraints = false
  
-        
         //container
-        container.backgroundColor = .systemBackground
+        container.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         container.layer.cornerRadius = 10
-        //container.layer.borderColor = .init(red: 0.2, green: 0.1, blue: 0.4, alpha: 0.9)
-        //container.layer.borderWidth = 1
+        
         
         //originalLinkLabel
         
@@ -86,23 +98,17 @@ extension LinkTableViewCell {
 
         //separatorLine
         separatorLine.backgroundColor = .systemGray5
-        
-       
-
     
-        
-
     }
     
     private func setupLayout() {
         
         //container
-        //container.widthAnchor.constraint(equalToConstant:UIScreen.main.bounds.size.width).isActive = true
-       // container.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        container.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+       
+        container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         
         //originalLinkLabel
         originalLinkLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true

@@ -1,5 +1,5 @@
 //
-//  TopDashboardView.swift
+//  LinkListTableView.swift
 //  Shortly
 //
 //  Created by mehrnoush abdinian on 19.06.22.
@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
-class TopDashboardView: UIView {
-    private lazy var tableView = UITableView()
-    private lazy var data: [LinkData] = [
-        LinkData(originalLink: "https://www.spiegehghughguugztftzgztfgztgztgzl.de/sie...", shorterLink: "https://rel.ink/k4|Kyk"),
-        LinkData(originalLink: "https://www.frontendmen...", shorterLink: "https://rel.ink/a78sla"),
-    ]
+class LinkListTableView: UIView {
+    private lazy var tableView = UITableView().autoLayoutView()
+    
+    var linkList: [ShorterLinkResult] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
 
     //tuye UIviewcontroller ma superDidview?
@@ -30,9 +32,10 @@ class TopDashboardView: UIView {
     }
 }
 
+
 // MARK: - TableView Data source
 
-extension TopDashboardView: UITableViewDataSource {
+extension LinkListTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
     }
@@ -43,7 +46,7 @@ extension TopDashboardView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return linkList.count
     }
     
     
@@ -51,27 +54,35 @@ extension TopDashboardView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "linkCell", for: indexPath) as? LinkTableViewCell {
-            let linkData = data[indexPath.row]
+            let linkData = linkList[indexPath.row]
             cell.setupCell(data: linkData)
+           
+            cell.eventHandler =  { [weak self] events in
+                switch events {
+                case .removeItem(let data):
+                    if let index = self?.linkList.firstIndex(where: {$0.full_short_link == data.full_short_link}) {
+                        self?.linkList.remove(at: index)
+                        self?.tableView.reloadData()
+                    }
+                   
+                }
+            }
+            
             return cell
         }
         fatalError("could not dequeueReusableCell")
     }
 }
 
-extension TopDashboardView: UITableViewDelegate {
+extension LinkListTableView: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
+   
 }
 
 
 
-
-
 // MARK: - Setup UI
-extension TopDashboardView {
+extension LinkListTableView {
     
     func setupDefault() {
         tableView.register(LinkTableViewCell.self, forCellReuseIdentifier: "linkCell")
@@ -86,7 +97,7 @@ extension TopDashboardView {
        addSubview(tableView)
         tableView.backgroundColor = .secondarySystemBackground
         // har chizi ke mikhahim dar in laye nemayesh dade beshe bayad dar in ghesmat ezafe konim.addSubView?
-      
+        tableView.backgroundView = UIImageView(image: UIImage(named: "something.png"))
     }
     
      private func setupLayout() {
@@ -96,18 +107,4 @@ extension TopDashboardView {
          tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
          tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
      }
-}
-
-class LinkData {
-  
-    let originalLink: String
-    let shorterLink: String
-    //let copyButton: 
-    
-    
-    init(originalLink: String, shorterLink: String) {
-        self.originalLink = originalLink
-        self.shorterLink = shorterLink
-    }
-    
 }
