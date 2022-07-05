@@ -79,7 +79,7 @@ extension LinkTableViewCell {
         container.addSubview(copyButton)
  
         //container
-        container.backgroundColor = .secondarySystemBackground
+        container.backgroundColor = UIColor.secondarySystemBackground
         container.layer.cornerRadius = 10
         
         //originalLinkLabel
@@ -99,11 +99,11 @@ extension LinkTableViewCell {
         // copyButton
         copyButton.translatesAutoresizingMaskIntoConstraints = false
         copyButton.setTitle(" Copy! ", for: .normal)
-        copyButton.backgroundColor = UIColor(red: CGFloat(92/255.0), green: CGFloat(203/255.0), blue: CGFloat(207/255.0), alpha: CGFloat(1.0))
+        copyButton.backgroundColor = UIColor.greenBlue
         copyButton.setTitleColor(.black, for: .normal)
         copyButton.layer.cornerRadius = 5
         copyButton.layer.borderWidth = 1
-        copyButton.layer.borderColor = .init(gray: 0.9, alpha: 0.7)
+        copyButton.layer.borderColor = UIColor.pinkBorderColor?.cgColor
         
         //separatorLine
         separatorLine.backgroundColor = .systemGray5
