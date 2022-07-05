@@ -15,11 +15,15 @@
 		56FB406B285BB73900FE6E6B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB406A285BB73900FE6E6B /* DashboardViewController.swift */; };
 		56FB4071285F19B300FE6E6B /* LinkListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4070285F19B300FE6E6B /* LinkListTableView.swift */; };
 		56FB4143286234B000FE6E6B /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4142286234B000FE6E6B /* LinkTableViewCell.swift */; };
-		56FB414A2866053B00FE6E6B /* ShortlyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB41492866053B00FE6E6B /* ShortlyDataModel.swift */; };
+		56FB414A2866053B00FE6E6B /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB41492866053B00FE6E6B /* NetworkingModel.swift */; };
 		56FB414D2866268500FE6E6B /* CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB414C2866268500FE6E6B /* CharacterSet.swift */; };
 		56FB414F2866269C00FE6E6B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB414E2866269C00FE6E6B /* Dictionary.swift */; };
 		56FB4151286626C600FE6E6B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4150286626C600FE6E6B /* UIView.swift */; };
-		56FB4153286B717C00FE6E6B /* something.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FB4152286B717C00FE6E6B /* something.png */; };
+		56FB41572870F42D00FE6E6B /* no-URL.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FB41562870F42D00FE6E6B /* no-URL.png */; };
+		56FB4159287485B000FE6E6B /* TableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB4158287485B000FE6E6B /* TableBackgroundView.swift */; };
+		56FB415B2874975F00FE6E6B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB415A2874975F00FE6E6B /* UIColor.swift */; };
+		56FB415F2874A50A00FE6E6B /* ShorterLinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB415E2874A50A00FE6E6B /* ShorterLinkResponse.swift */; };
+		56FB41612874A52F00FE6E6B /* ShorterLinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB41602874A52F00FE6E6B /* ShorterLinkData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +37,15 @@
 		56FB406A285BB73900FE6E6B /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		56FB4070285F19B300FE6E6B /* LinkListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListTableView.swift; sourceTree = "<group>"; };
 		56FB4142286234B000FE6E6B /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
-		56FB41492866053B00FE6E6B /* ShortlyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortlyDataModel.swift; sourceTree = "<group>"; };
+		56FB41492866053B00FE6E6B /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
 		56FB414C2866268500FE6E6B /* CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSet.swift; sourceTree = "<group>"; };
 		56FB414E2866269C00FE6E6B /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		56FB4150286626C600FE6E6B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		56FB4152286B717C00FE6E6B /* something.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = something.png; sourceTree = "<group>"; };
+		56FB41562870F42D00FE6E6B /* no-URL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-URL.png"; sourceTree = "<group>"; };
+		56FB4158287485B000FE6E6B /* TableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBackgroundView.swift; sourceTree = "<group>"; };
+		56FB415A2874975F00FE6E6B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		56FB415E2874A50A00FE6E6B /* ShorterLinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShorterLinkResponse.swift; sourceTree = "<group>"; };
+		56FB41602874A52F00FE6E6B /* ShorterLinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShorterLinkData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 			children = (
 				56FB405B285B65CD00FE6E6B /* LaunchScreen.storyboard */,
 				56FB4059285B65CD00FE6E6B /* Assets.xcassets */,
+				56FB41562870F42D00FE6E6B /* no-URL.png */,
 				56FB4050285B65CC00FE6E6B /* AppDelegate.swift */,
 				56FB4052285B65CC00FE6E6B /* SceneDelegate.swift */,
 			);
@@ -96,8 +105,8 @@
 			children = (
 				56FB4066285B7E6200FE6E6B /* LinkInputView.swift */,
 				56FB4070285F19B300FE6E6B /* LinkListTableView.swift */,
-				56FB4152286B717C00FE6E6B /* something.png */,
 				56FB4142286234B000FE6E6B /* LinkTableViewCell.swift */,
+				56FB4158287485B000FE6E6B /* TableBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,7 +114,8 @@
 		56FB4148286604FF00FE6E6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				56FB41492866053B00FE6E6B /* ShortlyDataModel.swift */,
+				56FB415D2874A4F100FE6E6B /* Data model */,
+				56FB415C2874A4E000FE6E6B /* Networking */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,8 +126,26 @@
 				56FB414C2866268500FE6E6B /* CharacterSet.swift */,
 				56FB414E2866269C00FE6E6B /* Dictionary.swift */,
 				56FB4150286626C600FE6E6B /* UIView.swift */,
+				56FB415A2874975F00FE6E6B /* UIColor.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		56FB415C2874A4E000FE6E6B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				56FB41492866053B00FE6E6B /* NetworkingModel.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		56FB415D2874A4F100FE6E6B /* Data model */ = {
+			isa = PBXGroup;
+			children = (
+				56FB415E2874A50A00FE6E6B /* ShorterLinkResponse.swift */,
+				56FB41602874A52F00FE6E6B /* ShorterLinkData.swift */,
+			);
+			path = "Data model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +208,7 @@
 			files = (
 				56FB405D285B65CD00FE6E6B /* LaunchScreen.storyboard in Resources */,
 				56FB405A285B65CD00FE6E6B /* Assets.xcassets in Resources */,
-				56FB4153286B717C00FE6E6B /* something.png in Resources */,
+				56FB41572870F42D00FE6E6B /* no-URL.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FB4151286626C600FE6E6B /* UIView.swift in Sources */,
+				56FB41612874A52F00FE6E6B /* ShorterLinkData.swift in Sources */,
+				56FB415B2874975F00FE6E6B /* UIColor.swift in Sources */,
 				56FB4051285B65CC00FE6E6B /* AppDelegate.swift in Sources */,
 				56FB4053285B65CC00FE6E6B /* SceneDelegate.swift in Sources */,
 				56FB4067285B7E6200FE6E6B /* LinkInputView.swift in Sources */,
@@ -199,8 +229,10 @@
 				56FB4071285F19B300FE6E6B /* LinkListTableView.swift in Sources */,
 				56FB414F2866269C00FE6E6B /* Dictionary.swift in Sources */,
 				56FB406B285BB73900FE6E6B /* DashboardViewController.swift in Sources */,
+				56FB415F2874A50A00FE6E6B /* ShorterLinkResponse.swift in Sources */,
+				56FB4159287485B000FE6E6B /* TableBackgroundView.swift in Sources */,
 				56FB414D2866268500FE6E6B /* CharacterSet.swift in Sources */,
-				56FB414A2866053B00FE6E6B /* ShortlyDataModel.swift in Sources */,
+				56FB414A2866053B00FE6E6B /* NetworkingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +383,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Mehrnoush.Shortly;
+				PRODUCT_BUNDLE_IDENTIFIER = "m.abdinian1989-gmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -378,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Mehrnoush.Shortly;
+				PRODUCT_BUNDLE_IDENTIFIER = "m.abdinian1989-gmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
